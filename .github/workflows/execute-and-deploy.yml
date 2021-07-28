@@ -15,6 +15,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Set up Python
       uses: actions/setup-python@v2.2.2
+    # yaananth/run-notebook@v1 requires we inject a JSON params file
+    - name: Setup params
+      run: echo {} > ${{ github.workspace }}/empty-params.json
     - name: Execute Jupyter notebook
       uses: yaananth/run-notebook@v1
       env:
@@ -23,6 +26,7 @@ jobs:
         GITHUB: ${{ toJson(github) }}
       with:
         notebook: ${{ github.workspace }}/covid_heatmap.ipynb
+        params: ${{ github.workspace }}/empty-params.json
     - name: Deploy to GitHub pages
       uses: peaceiris/actions-gh-pages@v3
       with:
