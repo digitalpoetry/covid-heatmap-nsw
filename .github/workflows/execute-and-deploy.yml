@@ -19,7 +19,6 @@ jobs:
       uses: yaananth/run-notebook@v1
       with:
         notebook: ${{ github.workspace }}/covid_heatmap.ipynb
-        poll: True
     - name: Deploy to GitHub pages
       uses: peaceiris/actions-gh-pages@v3
       with:
