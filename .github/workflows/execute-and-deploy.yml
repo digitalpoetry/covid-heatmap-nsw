@@ -1,0 +1,26 @@
+name: Execute notebook and publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v2.2.2
+    - name: Execute notebook
+      run: |
+        pip install jupyter
+        jupyter nbconvert --to notebook --execute ${{ github.workspace }}/covid_heatmap.ipynb
+    - name: Deploy to GitHub pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ github.workspace }}/public
