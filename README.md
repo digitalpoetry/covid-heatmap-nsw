@@ -2,7 +2,9 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/digitalpoetry/covid-heatmap-nsw/blob/main/covid_heatmap.ipynb)
 
-NSW COVID-19 cases reported within the last 2 weeks, by postcode.
+NSW Data has now discontinued the reporting of COVID-19 case location data.
+
+This visualisation, now outdated, shows the number of NSW COVID-19 cases reported within the last 2 weeks, by postcode.
 
 https://digitalpoetry.github.io/covid-heatmap-nsw/
 
